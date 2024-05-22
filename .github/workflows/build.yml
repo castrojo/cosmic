@@ -130,9 +130,8 @@ jobs:
           registry: ${{ steps.registry_case.outputs.lowercase }}
           image: ${{ steps.build_image.outputs.image }}
           tags: ${{ steps.build_image.outputs.tags }}
-        extra-args:
-          --compression-format=zstd:chunked
-
+          extra-args:
+            --compression-format=zstd:chunked
       # Sign container
       - uses: sigstore/cosign-installer@v3.4.0
         if: github.event_name != 'pull_request'
